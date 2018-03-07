@@ -1,0 +1,29 @@
+{
+  "name": "node_smy",
+  "version": "0.0.1",
+  "author": {
+    "name": "shihao",
+    "email": "haozi.shi@foxmail.com"
+  },
+  "bugs": {
+    "email": "haozi.shi@foxmail.com"
+  },
+  "scripts": {
+    "server-product": "SCENE=product node app.js",
+    "server-test": "SCENE=test node app.js",
+    "server-development": "SCENE=development node app.js"
+  },
+  "dependencies": {
+    "koa": "2.2.0",
+    "koa-router": "7.1.1",
+    "koa-convert": "*",
+    "koa-bodyparser": "*",
+    "log4js": "1.1.1",
+    "koa-cors": "*",
+    "mongoist": "*",
+    "request": "*",
+    "nodemailer": "*",
+    "ioredis": "*",
+    "ipaddr.js": "^1.4.0"
+  }
+}

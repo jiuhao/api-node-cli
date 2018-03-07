@@ -1,0 +1,13 @@
+{
+  "url": "mongodb://localhost:27017/smy",
+  "ops": {
+    "poolSize": 30,
+    "keepAlive": true,
+    "autoReconnect": true,
+    "connectTimeoutMS": 10000,
+    "socketTimeoutMS": 120000,
+    "noDelay": true,
+    "reconnectTries": 1000,
+    "reconnectInterval": 3000
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "api-node-cli",
+  "version": "0.0.1",
+  "description": "node服务端构建工具",
+  "main": "app.js",
+  "bin": {
+    "api-node-cli": "./app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "cli","node","api"
+  ],
+  "author": "haozi.shi@foxmail.com",
+  "license": "MIT"
+}
