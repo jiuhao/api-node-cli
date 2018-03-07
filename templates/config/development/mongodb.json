@@ -1,5 +1,5 @@
 {
-  "url": "mongodb://localhost:27017/smy",
+  "url": "",
   "ops": {
     "poolSize": 30,
     "keepAlive": true,

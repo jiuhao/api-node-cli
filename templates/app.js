@@ -13,12 +13,6 @@ const router = require('./router');
 app.use(convert(cors()));
 //解析请求体
 app.use(bodyParser({enableTypes: ['text', 'json', "form"]}));
-app.use(async (ctx, next) => {
-    const start = Date.now();
-    await next();
-    const ms = Date.now() - start;
-    console.log('输出' + `${ctx.method} ${ctx.url} - ${ms}`);
-});
 app.use(router.routes(), router.allowedMethods());
 
 //解析ipv4

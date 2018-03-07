@@ -1,12 +1,12 @@
 {
-  "name": "node_smy",
+  "name": "",
   "version": "0.0.1",
   "author": {
-    "name": "shihao",
-    "email": "haozi.shi@foxmail.com"
+    "name": "",
+    "email": ""
   },
   "bugs": {
-    "email": "haozi.shi@foxmail.com"
+    "email": ""
   },
   "scripts": {
     "server-product": "SCENE=product node app.js",
