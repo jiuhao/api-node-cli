@@ -78,13 +78,13 @@ let getIP = (ip)=> {
     return resultIP;
 };
 
-// 校验用户（以login方法结尾的请求不验证）
+// 校验用户（以login方法结尾的请求不验证
 router.post(/^(?!.*?(\/login))/, async(ctx, next) => {
     console.log('所有post：');
     await next();
 });
 
-
+// 扫描router下文件
 fs.readdirSync(__dirname).filter(file=>
     (file.indexOf('.') !== 0) && (file.split('.').slice(-1)[0] === 'js') && (file !== basename)
 ).forEach(file=> {

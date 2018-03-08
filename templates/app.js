@@ -13,6 +13,7 @@ const router = require('./router');
 app.use(convert(cors()));
 //解析请求体
 app.use(bodyParser({enableTypes: ['text', 'json', "form"]}));
+//路由
 app.use(router.routes(), router.allowedMethods());
 
 //解析ipv4

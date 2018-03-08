@@ -25,3 +25,4 @@ build/Release
 .git/
 .DS_Store
 .idea
+node_modules/

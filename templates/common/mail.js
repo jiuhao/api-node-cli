@@ -25,7 +25,7 @@ exports.sendMail = function (subject, text) {
         let mailOptions = {
             from: 'haozi.shi@foxmail.com', // 发送者
             to: 'haozi.shi@foxmail.com', // 接受者,可以同时发送多个,以逗号隔开
-            subject: (subject || 'XX项目') + '-' + getIPAdress(), // 标题
+            subject: (subject || '星火项目') + '-' + getIPAdress(), // 标题
             text: text // 文本
         };
         //todo 开启注释后，你将收到错误信息邮件，当然你可以过滤错误类型

@@ -31,22 +31,6 @@ const copy = function (src, dst) {
     });
 };
 
-const deleteAll = async() => {
-    let files = [];
-    if (fs.existsSync(path)) {
-        files = fs.readdirSync(path);
-        files.forEach(function (file, index) {
-            let curPath = path + "/" + file;
-            if (fs.statSync(curPath).isDirectory()) { // recurse
-                deleteAll(curPath);
-            } else { // delete file
-                fs.unlinkSync(curPath);
-            }
-        });
-        fs.rmdirSync(path);
-    }
-};
-
 const exists = async(src, dst, callback) => {
     //测试某个路径下文件是否存在
     fs.exists(dst, function (exists) {
@@ -61,10 +45,8 @@ const exists = async(src, dst, callback) => {
 };
 
 (async()=> {
-    console.log("构建中....");
     try {
-        await exists(path.join(__dirname, '/templates'), path.join(__dirname), copy);
-        await deleteAll(path.join(__dirname, '/templates'));
+        await exists(path.join(__dirname, '/templates'), path.join(process.cwd()), copy);
     } catch (e) {
         console.log(`构建异常：${e}`);
     }
