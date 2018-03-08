@@ -2,7 +2,7 @@
   "name": "api-node-cli",
   "version": "0.0.3",
   "description": "node服务端构建工具",
-  "main": "app.js",
+  "main": "index.js",
   "bin": {
     "api-node-cli": "./index.js"
   },
