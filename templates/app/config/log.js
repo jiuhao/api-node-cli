@@ -1,5 +1,5 @@
 const path = require('path');
-const project = require('../package.json');
+const project = require('../../package.json');
 
 //错误日志输出完整路径
 let errorLogPath = path.resolve(__dirname, `/data/logs/${project.name}/error`);

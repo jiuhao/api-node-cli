@@ -3,7 +3,7 @@ const fs = require('fs');
 const router = require('koa-router')();
 const ApiError = require('../error/apiError');
 const ipAddress = require('ipaddr.js');
-const config = require('../config');
+const config = require('../config/index');
 const logUtil = require('../common/logUtil');
 
 const basename = path.basename(module.filename);
@@ -20,12 +20,14 @@ router.all('*', async(ctx, next) => {
         let ipArray = config.sys.accessip;
         if (ipArray.length == 0 || ipArray.includes(ctx.ipv4)) {  //不做IP限制或满足IP限制的可以访问
             await next();
-            ctx.body = {
-                code: 1,
-                msg: '请求成功',
-                data: ctx.data
-            };
-            logUtil.reqLogger(ctx);
+            if (ctx.data) {
+                ctx.body = {
+                    code: 1,
+                    msg: '请求成功',
+                    data: ctx.data
+                };
+                logUtil.reqLogger(ctx);
+            }
         } else {
             ctx.body = {
                 code: -1,
@@ -33,21 +35,28 @@ router.all('*', async(ctx, next) => {
             };
             logUtil.reqLogger(ctx);
         }
-        console.log('response data:', ctx.data);
-        ctx.body = {
-            code: 1,
-            msg: '请求成功',
-            data: ctx.data
-        }
     } catch (e) {
+        //记录日志
+        logUtil.logError(e);
         let err = new ApiError(e.message);
-        console.error(e);
         ctx.body = {
             code: err.code,
             msg: err.message,
-            data: ""
         }
     }
+});
+
+// 校验用户（以login方法结尾的请求不验证
+router.post(/^(?!.*?(\/login))/, async(ctx, next) => {
+    await next();
+});
+
+// 扫描router下文件
+fs.readdirSync(__dirname).filter(file=>
+    (file.indexOf('.') !== 0) && (file.split('.').slice(-1)[0] === 'js') && (file !== basename)
+).forEach(file=> {
+    const r = require(path.join(__dirname, file));
+    router.use('/api', r.routes(), r.allowedMethods());
 });
 
 let getIP = (ip)=> {
@@ -77,19 +86,5 @@ let getIP = (ip)=> {
     }
     return resultIP;
 };
-
-// 校验用户（以login方法结尾的请求不验证
-router.post(/^(?!.*?(\/login))/, async(ctx, next) => {
-    console.log('所有post：');
-    await next();
-});
-
-// 扫描router下文件
-fs.readdirSync(__dirname).filter(file=>
-    (file.indexOf('.') !== 0) && (file.split('.').slice(-1)[0] === 'js') && (file !== basename)
-).forEach(file=> {
-    const r = require(path.join(__dirname, file));
-    router.use('/api', r.routes(), r.allowedMethods());
-});
 
 module.exports = router;

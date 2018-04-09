@@ -1,6 +1,6 @@
-let env = process.env.SCENE || 'development';
+let env = process.env.SCENE || 'dev';
 if (!env) {
-    env = 'development';
+    env = 'dev';
 }
 console.log(`当前启动的环境配置为${env}，如果不符，请立即关闭`);
 module.exports = new Proxy({}, {

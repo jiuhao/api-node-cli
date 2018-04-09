@@ -1,0 +1,27 @@
+{
+  "apps": [
+    {
+      "name": "XX",
+      "instances": 2,
+      "max_memory_restart": "1G",
+      "exec_mode": "cluster",
+      "script": "app.js",
+      "watch": [
+        "app"
+      ],
+      "ignore_watch": [
+        "node_modules",
+        "logs",
+        "pm2.json"
+      ],
+      "watch_options": {
+        "followSymlinks": false
+      },
+      "error_file": "./logs/app-err.log",
+      "out_file": "./logs/app-out.log",
+      "env": {
+        "NODE_ENV": "product"
+      }
+    }
+  ]
+}

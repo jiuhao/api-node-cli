@@ -18,8 +18,6 @@ class ApiError extends Error {
         this.name = error_name;
         this.code = error_info.code;
         this.message = error_info.message;
-        //记录日志
-        logUtil.logError(this);
     }
 }
 

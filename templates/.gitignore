@@ -26,3 +26,4 @@ build/Release
 .DS_Store
 .idea
 node_modules/
+logs/

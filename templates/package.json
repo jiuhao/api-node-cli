@@ -9,21 +9,23 @@
     "email": ""
   },
   "scripts": {
-    "server-product": "SCENE=product node app.js",
-    "server-test": "SCENE=test node app.js",
-    "server-development": "SCENE=development node app.js"
+    "product": "pm2 start pm2.json",
+    "test": "NODE_ENV=test pm2 start app.js --watch",
+    "dev": "NODE_ENV=dev pm2 start app.js --watch"
   },
   "dependencies": {
-    "koa": "2.2.0",
-    "koa-router": "7.1.1",
-    "koa-convert": "*",
-    "koa-bodyparser": "*",
-    "log4js": "1.1.1",
-    "koa-cors": "*",
-    "mongoist": "*",
-    "request": "*",
-    "nodemailer": "*",
     "ioredis": "*",
-    "ipaddr.js": "^1.4.0"
+    "ipaddr.js": "^1.4.0",
+    "koa": "2.2.0",
+    "koa-bodyparser": "*",
+    "koa-convert": "*",
+    "koa-cors": "*",
+    "koa-router": "7.1.1",
+    "log4js": "1.1.1",
+    "mail": "*",
+    "mongoist": "*",
+    "nodemailer": "*",
+    "request": "*",
+    "mysql": "*"
   }
 }

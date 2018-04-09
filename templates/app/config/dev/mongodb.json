@@ -1,5 +1,5 @@
 {
-  "url": "mongodb://localhost:27017/smy",
+  "url": "mongodb://user:pwd@localhost:27017/xxx",
   "ops": {
     "poolSize": 30,
     "keepAlive": true,

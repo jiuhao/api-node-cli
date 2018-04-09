@@ -42,7 +42,8 @@ let formatError = function (err) {
     logText += "err stack: " + err.stack + "\n";
     //错误信息结束
     logText += "*************** error log end ***************" + "\n";
-    Mail.sendMail('异常信息', logText);
+    // Mail.sendMail('异常信息', logText); 发送邮件
+    console.log(err);
     return logText;
 };
 
@@ -57,7 +58,7 @@ let formatLog = function (ctx) {
     logText += "请求体 body: " + JSON.stringify(ctx.request.body) + "\n";
     logText += "返回体 return: " + JSON.stringify(ctx.body) + "\n";
     logText += "*************** 请求 log end ***************" + "\n";
-    console.log('请求日志：', logText);
+    console.log(logText);
     return logText;
 };
 
