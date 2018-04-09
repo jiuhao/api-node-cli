@@ -20,7 +20,7 @@
 ### 第九步
     运行app.js(webstorm) / 1. sudo npm install pm2 -g 2. npm run dev
 ### 第十步
-    创建数据库 test 新建表 t1 -> 字段 id,name
+    创建数据库 test 新建表 t1 -> 字段 id,name 插入数据
     使用postman工具模拟请求 http://localhost:7001/api/user/hello 传参数 id:1
 ### TIPS
     为方便管理建议重命名 app.js为 项目名.js 并同时修改 pm2.json下的name
