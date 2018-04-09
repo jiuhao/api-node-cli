@@ -12,14 +12,17 @@
 ### 第五步
     自定义 package.json 
 ### 第六步
-    安装依赖 npm install 或者 cnpm install
+    安装依赖 npm install
 ### 第七步
-    修改配置 根据SCENE值选择配置文件夹 config/development,config/product,config/test 默认为config/development
+    修改配置 根据SCENE值选择配置文件夹 config/dev,config/product,config/test 默认为config/dev
 ### 第八步
     自定义.gitignore
 ### 第九步
-    运行app.js
-    
+    运行app.js(webstorm) / 1. sudo npm install pm2 -g 2. npm run dev
+### 第十步
+    创建数据库 test 新建表 t1 -> 字段 id,name
+    使用postman工具模拟请求 http://localhost:7001/api/user/hello 传参数 id:1
 ### TIPS
-    为方便管理建议重命名 app.js 为 项目名.js
+    为方便管理建议重命名 app.js为 项目名.js 并同时修改 pm2.json下的name
     README.md提供目录结构解释
+    请求日志和错误日志路径参照 app/config/log.js
