@@ -10,6 +10,7 @@ const basename = path.basename(module.filename);
 
 // 拦截所有请求
 router.all('*', async(ctx, next) => {
+    ctx.data = null;
     try {
         let currentIP = getIP(ctx.ip);
         if (currentIP) {
@@ -25,6 +26,12 @@ router.all('*', async(ctx, next) => {
                     code: 1,
                     msg: '请求成功',
                     data: ctx.data
+                };
+                logUtil.reqLogger(ctx);
+            } else if (ctx.data === undefined) {
+                ctx.body = {
+                    code: 1,
+                    msg: '请求成功,但无结果集返回'
                 };
                 logUtil.reqLogger(ctx);
             }
