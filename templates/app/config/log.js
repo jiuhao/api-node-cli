@@ -2,8 +2,8 @@ const path = require('path');
 const project = require('../../package.json');
 
 //错误日志输出完整路径
-let errorLogPath = path.resolve(__dirname, `../logs/${project.name}/error`);
-let reqLogPath = path.resolve(__dirname, `../logs/${project.name}/req`);
+let errorLogPath = path.resolve(__dirname, `../../logs/${project.name}/error`);
+let reqLogPath = path.resolve(__dirname, `../../logs/${project.name}/req`);
 module.exports = {
     "appenders": [
         //错误日志
