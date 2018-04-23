@@ -177,3 +177,22 @@ exports.find = ({connection, sql, data}) => {
         });
     });
 };
+
+/**
+ * 更新
+ * @param connection
+ * @param sql
+ * @param data
+ * @return {Promise}
+ */
+exports.update = async({connection, sql, data}) => {
+    return await new Promise(function (res, rej) {
+        connection.query(sql, data, function (err, results, fields) {
+            if (err) {
+                rej(err);
+            } else {
+                res(results.changedRows);
+            }
+        });
+    });
+};
