@@ -21,17 +21,19 @@ router.all('*', async(ctx, next) => {
         let ipArray = config.sys.accessip;
         if (ipArray.length == 0 || ipArray.includes(ctx.ipv4)) {  //不做IP限制或满足IP限制的可以访问
             await next();
-            if (ctx.data) {
+            if (ctx.data === undefined) {
+                ctx.body = {
+                    code: 0,
+                    msg: '请求成功,但无结果集返回'
+                };
+                logUtil.reqLogger(ctx);
+            } else if (ctx.data === null) {
+                console.log('未找到path');
+            } else {
                 ctx.body = {
                     code: 1,
                     msg: '请求成功',
                     data: ctx.data
-                };
-                logUtil.reqLogger(ctx);
-            } else if (ctx.data === undefined) {
-                ctx.body = {
-                    code: 1,
-                    msg: '请求成功,但无结果集返回'
                 };
                 logUtil.reqLogger(ctx);
             }
