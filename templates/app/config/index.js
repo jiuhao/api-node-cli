@@ -1,4 +1,4 @@
-let env = process.env.SCENE || 'dev';
+let env = process.env.NODE_ENV || 'dev';
 if (!env) {
     env = 'dev';
 }
