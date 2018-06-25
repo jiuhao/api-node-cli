@@ -38,4 +38,5 @@ find 返回多条结果集数组<br/>
 update 返回修改的行数<br/>
 insert 返回插入的id<br/>
 6./router下index.js 中将对所有请求进行拦截格式化处理和记录日志，可通过路由正则的方式进行额外处理<br />
-7./error下封装了自定义的错误类型
+7./error下封装了自定义的错误类型<br />
+8.[时间处理模块moment](https://github.com/moment/moment)  [校验模块validator](https://github.com/chriso/validator.js)
