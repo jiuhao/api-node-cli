@@ -55,8 +55,8 @@ router.all('*', async(ctx, next) => {
     }
 });
 
-// 校验用户（以login方法结尾的请求不验证
-router.post(/^(?!.*?(\/login))/, async(ctx, next) => {
+// 校验用户（以/login或者/withoutlogin结尾的请求不验证
+router.post(/^(?!.*?(\/login|\/withoutlogin))/, async(ctx, next) => {
     await next();
 });
 

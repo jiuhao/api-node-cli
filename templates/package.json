@@ -26,6 +26,8 @@
     "mongoist": "*",
     "nodemailer": "*",
     "request": "*",
-    "mysql": "*"
+    "mysql": "*",
+    "validator": "*",
+    "moment": "*"
   }
 }
