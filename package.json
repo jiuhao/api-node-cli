@@ -1,6 +1,6 @@
 {
   "name": "api-node-cli",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "node服务端构建工具",
   "main": "index.js",
   "bin": {
