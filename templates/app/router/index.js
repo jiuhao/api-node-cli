@@ -45,9 +45,13 @@ router.all('*', async(ctx, next) => {
             logUtil.reqLogger(ctx);
         }
     } catch (e) {
-        //记录日志
         logUtil.logError(e);
-        let err = new ApiError(e.message);
+        let err;
+        if (!(e instanceof ApiError)) {
+            err = new ApiError(e.message);
+        } else {
+            err = e;
+        }
         ctx.body = {
             code: err.code,
             msg: err.message,
