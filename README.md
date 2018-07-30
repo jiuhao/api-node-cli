@@ -32,6 +32,7 @@ getConnection 从连接池里获取一个数据库连接<br/>
 beginTransaction 开始事物<br/>
 commit 提交事物<br/>
 rollback 回滚事物<br/>
+release 释放连接<br/>
 query 返回查询相关的所有信息{results, fields}<br/>
 findOne 返回一条结果集对象<br/>
 find 返回多条结果集数组<br/>
@@ -39,4 +40,5 @@ update 返回修改的行数<br/>
 insert 返回插入的id<br/>
 6./router下index.js 中将对所有请求进行拦截格式化处理和记录日志，可通过路由正则的方式进行额外处理<br />
 7./error下封装了自定义的错误类型<br />
-8.[时间处理模块moment](https://github.com/moment/moment)  [校验模块validator](https://github.com/chriso/validator.js)
+8.[时间处理模块moment](https://github.com/moment/moment)  [校验模块validator](https://github.com/chriso/validator.js)<br />
+9.新增commom/requestPro.js 用于服务端调用第三方api，并可以选择记录日志
